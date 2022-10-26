@@ -2,6 +2,7 @@ import spotipy
 from flask import Flask, render_template, request, jsonify, Response
 from flask_cors import CORS
 from flask_restful import Resource , Api ,reqparse
+from bson import json_util
 from spotipy.oauth2 import SpotifyClientCredentials
 
 
@@ -23,16 +24,13 @@ def index():
 @app.route('/link')
 def tab():
     results = spotify.artist_albums(birdy_uri, album_type='album')
+    albums = results['items']
+    while results['next']:
+        results = spotify.next(results)
+        albums.extend(results['items'])
 
-
-albums = results['items']
-while results['next']:
-    results = spotify.next(results)
-    albums.extend(results['items'])
-
-for album in albums:
-
-    resp = json_util.dumps(album)
+    for album in albums:
+        resp = json_util.dumps(album)
     return Response(resp, mimetype='application/json')
 
 
