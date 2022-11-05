@@ -2,9 +2,11 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { SearchComponent } from "src/app/search/search.component";
+
 export const environment = {
   production: false,
-  oauthToken: 'Bearer BQDz-y6iTHoxELpiiJ7H-eumlCcLibJI2N_tv24IL65vQiP9KfPCQbFQ3op97L-ThiiIqNZgyeNsUedO-dTCTjKMG0KqZ3qR9Kr-C3efLxIUFhn2-6zgGNpxRmzr6QeZsOhrAMZZ0hoCCildNuf7RsxTQsTCUjO4JICklgJlpMuNGmJ9b0wdGi6V3SrerUd_2NE"'
+  oauthToken: SearchComponent.myArray
 };
 
 /*

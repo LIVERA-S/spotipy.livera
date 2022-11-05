@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
   private authConfig: AuthConfig = { 
     client_id: "c0b1eb0b7a7848eb8436567d5871b8c2",
     response_type: "token",
-    redirect_uri: "https://4200-liveras-spotipylivera-uqscts58vfa.ws-eu74.gitpod.io/search", 
+    redirect_uri: "https://4200-liveras-spotipylivera-849434yjfe4.ws-eu74.gitpod.io/search", 
     state: "",
     show_dialog: true,
     scope:""

@@ -15,6 +15,7 @@ export class SearchComponent {
   results: any;
   urlOuth: string | undefined;
   href: string | undefined;
+  static myArray: any;
 
   // faccio iniettare lo spotify service e faccio una ricerca
   constructor(public spotify: SpotifyService, public router: Router) {
@@ -31,11 +32,9 @@ export class SearchComponent {
   }
 
   ngOnInit(): void {
-    this.href = this.router.url;
     let myArray = this.router.url.split("=");
     myArray = myArray[1].split("&");
-    this.urlOuth = myArray[0]
-    console.log(this.urlOuth);
+    console.log(myArray[0]);
   }
 
   submit(query: HTMLInputElement): void {
