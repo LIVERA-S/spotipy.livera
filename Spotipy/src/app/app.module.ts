@@ -19,7 +19,7 @@ import { ScopesBuilder } from './scopes/scopes-builder';
     ArtistComponent,
     TrackComponent,
     SearchComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

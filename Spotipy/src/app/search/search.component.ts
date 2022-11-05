@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SpotifyService } from '../spotify.service';
 import { Route, Router } from '@angular/router';
@@ -9,16 +9,17 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
+  @Input()
   query: string | undefined;
   title = 'first-routed-app';
   obsTrack: Observable<Object> | undefined;
   results: any;
+  urlOuth: string = undefined!;
   // faccio iniettare lo spotify service e faccio una ricerca
-  constructor(public spotify: SpotifyService, public router:Router) {
+  constructor(public spotify: SpotifyService, public router: Router) {
 
-    if (localStorage.getItem("dataSource") != null)
-    {
-      let data:any  = localStorage.getItem("dataSource");
+    if (localStorage.getItem("dataSource") != null) {
+      let data: any = localStorage.getItem("dataSource");
       this.results = JSON.parse(data)
 
     }
@@ -34,7 +35,8 @@ export class SearchComponent {
     let myArray = this.router.url.split("=");
     console.log(myArray[1]);
     myArray = myArray[1].split("&");
-    console.log(myArray[0]);
+    this.urlOuth = myArray[0]
+    console.log(this.urlOuth);
   }
 
   submit(query: HTMLInputElement): void {
@@ -52,14 +54,12 @@ export class SearchComponent {
       });
   }
 
-  clear():boolean{
+  clear(): boolean {
     localStorage.removeItem("dataSource")
     window.location.reload();
     return true;
   }
- load(){
 
- }
   renderResults(res: any): void {
     this.results = null;
     if (res && res.tracks && res.tracks.items) {
@@ -67,11 +67,4 @@ export class SearchComponent {
     }
 
   }
-
-
 }
-
-
-/*console.log("CIao")
-localStorage.setItem('dataSource', this.track.length);
-console.log("KHALED",localStorage.getItem('dataSource'));*/

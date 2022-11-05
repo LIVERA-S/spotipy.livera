@@ -11,10 +11,11 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LoginComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'test', component: SearchComponent },
   { path: 'tracks/:id', component: TrackComponent },
   { path: 'artist/:id', component: ArtistComponent },
   { path: 'album/:id', component: AlbumComponent },
-  { path: '', redirectTo: '/search', pathMatch: 'full' }
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({

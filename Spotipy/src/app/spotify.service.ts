@@ -28,7 +28,7 @@ export class SpotifyService {
     const headers = new HttpHeaders({
       Authorization: environment.oauthToken
     });
-    
+
     return this.http.get(url, { headers });
   }
 
@@ -38,8 +38,8 @@ export class SpotifyService {
       Authorization: environment.oauthToken
     });
 
-  console.log(this.getArtist);
-    
+    console.log(this.getArtist);
+
     return this.http.get(url, { headers });
   }
 
@@ -49,8 +49,8 @@ export class SpotifyService {
       Authorization: environment.oauthToken
     });
 
-  console.log(this.getAlbum);
-    
+    console.log(this.getAlbum);
+
     return this.http.get(url, { headers });
   }
 }
