@@ -8,6 +8,8 @@ import { AlbumComponent } from './album/album.component';
 import { ArtistComponent } from './artist/artist.component';
 import { TrackComponent } from './track/track.component';
 import { SearchComponent } from './search/search.component';
+import { LoginComponent } from './login/login.component';
+import { ScopesBuilder } from './scopes/scopes-builder';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { SearchComponent } from './search/search.component';
     AlbumComponent,
     ArtistComponent,
     TrackComponent,
-    SearchComponent
+    SearchComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

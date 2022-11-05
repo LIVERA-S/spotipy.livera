@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SpotifyService } from '../spotify.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -13,7 +14,7 @@ export class SearchComponent {
   obsTrack: Observable<Object> | undefined;
   results: any;
   // faccio iniettare lo spotify service e faccio una ricerca
-  constructor(public spotify: SpotifyService) {
+  constructor(public spotify: SpotifyService, public router:Router) {
 
     if (localStorage.getItem("dataSource") != null)
     {
@@ -25,6 +26,15 @@ export class SearchComponent {
       console.log("EMPTY []")
     }
 
+  }
+
+  ngOnInit(): void {
+    //this.href = this.router.url;
+    console.log(this.router.url);
+    let myArray = this.router.url.split("=");
+    console.log(myArray[1]);
+    myArray = myArray[1].split("&");
+    console.log(myArray[0]);
   }
 
   submit(query: HTMLInputElement): void {

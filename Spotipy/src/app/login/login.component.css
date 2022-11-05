@@ -1,0 +1,41 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    margin: auto;
+    text-align: center;
+    outline: dashed beige thin;
+    background: none;
+    width: 50%;
+    padding: 1rem 4rem;
+    margin-top: 10%;
+}
+
+.img-container{
+    margin: 3rem 0;
+}
+
+.img-container img{
+    min-width: 70px;
+    width: 70%;
+    object-fit: contain;
+}
+
+.img-container:hover{
+    cursor: pointer;
+    object-fit: contain;
+}
+
+span{
+    font-size: x-large;
+    font-weight: bold;
+    flex: 1 auto;
+}
+
+label:hover{
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
