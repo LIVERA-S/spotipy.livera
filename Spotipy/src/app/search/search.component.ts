@@ -9,12 +9,13 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
-  @Input()
   query: string | undefined;
   title = 'first-routed-app';
   obsTrack: Observable<Object> | undefined;
   results: any;
-  urlOuth: string = undefined!;
+  urlOuth: string | undefined;
+  href: string | undefined;
+
   // faccio iniettare lo spotify service e faccio una ricerca
   constructor(public spotify: SpotifyService, public router: Router) {
 
@@ -30,10 +31,8 @@ export class SearchComponent {
   }
 
   ngOnInit(): void {
-    //this.href = this.router.url;
-    console.log(this.router.url);
+    this.href = this.router.url;
     let myArray = this.router.url.split("=");
-    console.log(myArray[1]);
     myArray = myArray[1].split("&");
     this.urlOuth = myArray[0]
     console.log(this.urlOuth);
