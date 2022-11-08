@@ -13,10 +13,10 @@ export class SpotifyService {
   constructor(private http: HttpClient) { }
 
   searchTrack(query: string) {
-
+    console.log(environment.oauthToken + "Ciao")
     const url = `https://api.spotify.com/v1/search?q=${query}&type=track`;
     const headers = new HttpHeaders({
-      //Authorization: "Bearer " + this.urlOuth
+      Authorization: "Bearer " + environment.oauthToken
     });
 
     let obsTracks = this.http.get(url, { headers });
@@ -27,7 +27,7 @@ export class SpotifyService {
   getTrack(id: string) {
     const url = `https://api.spotify.com/v1/tracks/${id}`;
     const headers = new HttpHeaders({
-      Authorization: environment.oauthToken
+      Authorization: "Bearer " + environment.oauthToken
     });
 
     return this.http.get(url, { headers });
@@ -36,7 +36,7 @@ export class SpotifyService {
   getArtist(id: string) {
     const url = `https://api.spotify.com/v1/artists/${id}`;
     const headers = new HttpHeaders({
-      Authorization: environment.oauthToken
+      Authorization: "Bearer " + environment.oauthToken
     });
 
     console.log(this.getArtist);
@@ -47,7 +47,7 @@ export class SpotifyService {
   getAlbum(id: string) {
     const url = `https://api.spotify.com/v1/albums/${id}`;
     const headers = new HttpHeaders({
-      Authorization: environment.oauthToken
+      Authorization: "Bearer " + environment.oauthToken
     });
 
     console.log(this.getAlbum);

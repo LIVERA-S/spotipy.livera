@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SpotifyService } from '../spotify.service';
 import { Route, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-search',
@@ -35,6 +36,7 @@ export class SearchComponent {
     let myArray = this.router.url.split("=");
     myArray = myArray[1].split("&");
     console.log(myArray[0]);
+    environment.oauthToken = myArray[0]
   }
 
   submit(query: HTMLInputElement): void {

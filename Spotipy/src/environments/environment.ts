@@ -6,7 +6,8 @@ import { SearchComponent } from "src/app/search/search.component";
 
 export const environment = {
   production: false,
-  oauthToken: SearchComponent.myArray
+  oauthToken: ""
+
 };
 
 /*
